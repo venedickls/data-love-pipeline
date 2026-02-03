@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Query: Be My Valentine? SELECT * FROM Heart WHERE Owner = '[Her Name]'
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #00ff9d; /* neon green for data pipelines */
+        --accent: #ff2e63; /* hot pink for love errors */
+        --bg-dark: #0d1117; /* github dark mode vibe */
+        --card: #161b22;
+        --text: #c9d1d9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        background: var(--bg-dark);
+        color: var(--text);
+        font-family: "Roboto Mono", monospace;
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 255, 157, 0.08) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(255, 46, 99, 0.08) 0%,
+            transparent 30%
+          );
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--primary);
+        border-radius: 16px;
+        padding: 40px 25px;
+        box-shadow:
+          0 0 40px rgba(0, 255, 157, 0.15),
+          inset 0 0 20px rgba(0, 255, 157, 0.05);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-family: "Orbitron", sans-serif;
+        color: var(--primary);
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 15px var(--primary);
+        letter-spacing: 2px;
+      }
+
+      .subtitle {
+        color: var(--accent);
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      .photo-frame {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 30px;
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 25px rgba(0, 255, 157, 0.4);
+      }
+
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .message {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        margin: 0 auto 35px;
+        max-width: 90%;
+      }
+
+      .highlight {
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .code {
+        background: #0d1117;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 1rem;
+        text-align: left;
+        margin: 25px 0;
+        border-left: 4px solid var(--accent);
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .date {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin: 40px 0 20px;
+        text-shadow: 0 0 10px var(--accent);
+      }
+
+      .signature {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 50px;
+      }
+
+      .heart-beat {
+        font-size: 4.5rem;
+        animation: beat 1.4s infinite;
+        display: inline-block;
+      }
+
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.25);
+        }
+      }
+
+      /* Floating binary bits */
+      .binary {
+        position: absolute;
+        color: rgba(0, 255, 157, 0.3);
+        font-size: 1.2rem;
+        pointer-events: none;
+        animation: fall linear infinite;
+        white-space: nowrap;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+        .photo-frame {
+          width: 150px;
+          height: 150px;
+        }
+        .message {
+          font-size: 1.05rem;
+        }
+        .date {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Data Pipeline of Love</h1>
+        <div class="subtitle">
+          Status: <span class="highlight">Heart Ingested Successfully</span>
+        </div>
+
+        <div class="photo-frame">
+          <!-- Replace with your photo! Upload to imgbb/imgur for direct link or local file if hosting allows -->
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-281450b9b157?auto=format&fit=crop&q=80&w=800"
+            alt="Us"
+          />
+          <!-- Example: <img src="https://i.imgur.com/yourphoto.jpg" alt="Our best extract-load-transform moment"> -->
+        </div>
+
+        <p class="message">
+          Hey <strong>[Her Nickname / Name]</strong>,<br /><br />
+
+          I've been running nightly ETL jobs on my feelings for you —<br />
+          <span class="highlight">Extract:</span> every smile, every late-night
+          chat<br />
+          <span class="highlight">Transform:</span> ordinary days →
+          extraordinary memories<br />
+          <span class="highlight">Load:</span> straight into my heart warehouse
+          (partitioned by you 💾)<br /><br />
+
+          Zero null values. No schema drift. 100% uptime on loving you.<br /><br />
+
+          This Valentine's, I want to run our most important join yet:<br />
+          <strong>SELECT * FROM MyHeart WHERE Yours = 'Yes' LIMIT 1;</strong
+          ><br /><br />
+
+          <strong>Will you be my Valentine?</strong><br />
+          Plan: [your date idea — e.g. "Dinner + debugging our favorite series
+          together" / "Surprise data-viz picnic" / whatever you planned] ❤️
+        </p>
+
+        <div class="code">
+          -- Our Love Query (Compiled & Optimized) SELECT 'Forever' AS
+          Commitment, COUNT(*) AS Shared_Moments, AVG(Happiness) AS 11/10,
+          SUM(Adventures) AS Infinite FROM Us WHERE Date = '2026-02-14' AND
+          Status = 'Together' GROUP BY Love;
+        </div>
+
+        <p class="date">February 14, 2026 <span class="heart-beat">💖</span></p>
+
+        <p class="signature">
+          Deployed with love,<br />[Your Name / Nickname] 🐍💚<br />Your
+          favorite Data Engineer
+        </p>
+      </div>
+    </div>
+
+    <!-- Floating binary animation (optional fun) -->
+    <script>
+      function createBinary() {
+        const bin = document.createElement("div");
+        bin.className = "binary";
+        bin.textContent = Math.random() > 0.5 ? "10101010" : "01010101 1❤️0";
+        bin.style.left = Math.random() * 100 + "vw";
+        bin.style.animationDuration = Math.random() * 10 + 10 + "s";
+        bin.style.fontSize = Math.random() * 1.2 + 0.8 + "rem";
+        document.body.appendChild(bin);
+        setTimeout(() => bin.remove(), 15000);
+      }
+      setInterval(createBinary, 800);
+    </script>
+  </body>
+</html>
